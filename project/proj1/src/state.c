@@ -24,7 +24,41 @@ static void update_head(game_state_t *state, unsigned int snum);
 /* Task 1 */
 game_state_t *create_default_state() {
   // TODO: Implement this function.
-  return NULL;
+  //创建蛇
+  snake_t snake = {2, 2, 2, 4, true};
+
+  //创建返回对象
+  game_state_t *game = malloc(sizeof(game_state_t));
+  //为蛇分配内存并赋值
+  game->snakes = malloc(sizeof(snake_t));
+  game->snakes[0] = snake;
+  //为游戏界面赋值
+  game->board = malloc(18*sizeof(char*));
+  for (int i = 0; i < 18; i++) {
+    game->board[i] = malloc(20*sizeof(char));
+    for (int j = 0; j < 20; j++) {
+      game->board[i][j] = ' ';
+    }
+  }
+  //为边界赋值
+  for (int i = 0; i < 20; i++) {
+    game->board[0][i] = '#';
+    game->board[17][i] = '#';
+  }
+  for (int i = 1; i < 17; i++) {
+    game->board[i][0] = '#';
+    game->board[i][19] = '#';
+  }
+  //加入蛇和食物
+  game->board[2][9] = '*';
+  game->board[2][2] = 'd';
+  game->board[2][3] = '>';
+  game->board[2][4] = 'D';
+  //赋值其他变量
+  game->num_rows = 18;
+  game->num_snakes = 1;
+  
+  return game;
 }
 
 /* Task 2 */
