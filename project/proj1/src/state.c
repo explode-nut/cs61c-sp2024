@@ -75,11 +75,9 @@ void free_state(game_state_t *state) {
 /* Task 3 */
 void print_board(game_state_t *state, FILE *fp) {
   // TODO: Implement this function.
-  FILE *f = fopen(fp, "a");
   for (int i = 0; i < state->num_rows; i++) {
-    fprintf(f, state->board[i]);
+    fprintf(fp, "%s\n", state->board[i]);
   }
-  fclose(f);
   return;
 }
 
@@ -179,17 +177,17 @@ static char body_to_tail(char c) {
 static char head_to_body(char c) {
   // TODO: Implement this function.
   switch (c) {
-    case '^':
-      return 'W';
+    case 'W':
+      return '^';
       break;
-    case '<':
-      return 'A';
+    case 'A':
+      return '<';
       break;
-    case 'v':
-      return 'S';
+    case 'S':
+      return 'v';
       break;
-    case '>':
-      return 'D';
+    case 'D':
+      return '>';
       break;
   }
   return '?';
