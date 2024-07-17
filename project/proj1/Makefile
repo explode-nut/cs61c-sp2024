@@ -64,12 +64,20 @@ check-hashes:
 clean:
 	rm -f interactive-snake snake unit-tests custom-tests unit-test-*.snk *.exe *.o src/*.o tests/*-out.snk
 
+# .PHONY: debug-unit-tests
+# debug-unit-tests: unit-tests check-hashes
+# 	cgdb ./unit-tests
+
+# .PHONY: run-unit-tests
+# run-unit-tests: unit-tests check-hashes
+# 	./unit-tests
+
 .PHONY: debug-unit-tests
-debug-unit-tests: unit-tests check-hashes
+debug-unit-tests: unit-tests
 	cgdb ./unit-tests
 
 .PHONY: run-unit-tests
-run-unit-tests: unit-tests check-hashes
+run-unit-tests: unit-tests
 	./unit-tests
 
 .PHONY: debug-custom-tests

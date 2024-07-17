@@ -35,11 +35,13 @@ game_state_t *create_default_state() {
   //为游戏界面赋值
   game->board = malloc(18*sizeof(char*));
   for (int i = 0; i < 18; i++) {
-    game->board[i] = malloc(20*sizeof(char));
+    game->board[i] = malloc(21*sizeof(char));
     for (int j = 0; j < 20; j++) {
       game->board[i][j] = ' ';
     }
+    game->board[i][20] = '\0';
   }
+
   //为边界赋值
   for (int i = 0; i < 20; i++) {
     game->board[0][i] = '#';
