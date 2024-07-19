@@ -66,7 +66,7 @@ game_state_t *create_default_state() {
 /* Task 2 */
 void free_state(game_state_t *state) {
   // TODO: Implement this function.
-  for (int i = 0; i < 18; i++)
+  for (int i = 0; i < state->num_rows; i++)
     free(state->board[i]);
   free(state->board);
   free(state->snakes);
@@ -258,6 +258,19 @@ static char next_square(game_state_t *state, unsigned int snum) {
 */
 static void update_head(game_state_t *state, unsigned int snum) {
   // TODO: Implement this function.
+  unsigned int cur_row = state->snakes[snum].head_row;
+  unsigned int cur_col = state->snakes[snum].head_col;
+  char head_sign = get_board_at(state, cur_row, cur_col);
+  unsigned int next_row = get_next_row(cur_row, head_sign);
+  unsigned int next_col = get_next_col(cur_col, head_sign);
+
+  //修改snake_t
+  state->snakes[snum].head_row = next_row;
+  state->snakes[snum].head_col = next_col;
+  //修改board
+  set_board_at(state, next_row, next_col, head_sign);
+  set_board_at(state, cur_row, cur_col, head_to_body(head_sign));
+
   return;
 }
 
@@ -273,25 +286,108 @@ static void update_head(game_state_t *state, unsigned int snum) {
 */
 static void update_tail(game_state_t *state, unsigned int snum) {
   // TODO: Implement this function.
+  unsigned int cur_row = state->snakes[snum].tail_row;
+  unsigned int cur_col = state->snakes[snum].tail_col;
+  char tail_sign = get_board_at(state, cur_row, cur_col);
+  unsigned int next_row = get_next_row(cur_row, tail_sign);
+  unsigned int next_col = get_next_col(cur_col, tail_sign);
+  char next = get_board_at(state, next_row, next_col);
+
+  //修改snake_t
+  state->snakes[snum].tail_row = next_row;
+  state->snakes[snum].tail_col = next_col;
+  //修改board
+  set_board_at(state, next_row, next_col, body_to_tail(next));
+  set_board_at(state, cur_row, cur_col, ' ');
+
+
   return;
 }
 
 /* Task 4.5 */
 void update_state(game_state_t *state, int (*add_food)(game_state_t *state)) {
   // TODO: Implement this function.
+  for (int i = 0; i < state->num_snakes; i++) {
+    char next = next_square(state, i);
+    if (is_snake(next) || next == '#') {
+      set_board_at(state, state->snakes[i].head_row, state->snakes[i].head_col, 'x');
+      state->snakes[i].live = false;
+    } else if (next == '*') {
+      update_head(state, i);
+      add_food(state);
+    } else {
+      update_head(state, i);
+      update_tail(state, i);
+    }
+  }
   return;
 }
 
 /* Task 5.1 */
 char *read_line(FILE *fp) {
   // TODO: Implement this function.
-  return NULL;
+    char buff[255]; // 定义字符数组作为缓冲区
+    char *line = NULL;
+
+    // 尝试读取一行到缓冲区
+    if(fgets(buff, 255, fp) != NULL) {
+        line = malloc(strlen(buff) + 1); // 分配足够大小的内存
+        if(line != NULL) {
+            strcpy(line, buff); // 复制数据
+        }
+    }
+
+    return line;
 }
 
 /* Task 5.2 */
 game_state_t *load_board(FILE *fp) {
   // TODO: Implement this function.
-  return NULL;
+  game_state_t *res = NULL;
+  char *line;
+  unsigned int row = 0;
+
+  while ((line = read_line(fp)) != NULL) {
+    //读到空字符立即结束循环
+    if (line[0] == '\0') {
+      break;
+    }
+    //readline中使用fgets读取行，遇到换行符会停止读取，这样会多读一行空行
+    //因此要将每行最后一个换行符换成空字符防止多一行空行
+    if (line[strlen(line) - 1] == '\n') {
+      line[strlen(line) - 1] = '\0';
+    }
+    //第一次读取
+    if (row == 0) {
+      res = malloc(sizeof(game_state_t));
+      if (res == NULL) {
+        free(line);
+        return NULL;
+      }
+      res->board = malloc((row + 1) * sizeof(char*));
+      if (res->board == NULL) {
+        free(line);
+        return NULL;
+      }
+    } else {
+      //非第一次读取
+      res->board = realloc(res->board, (row + 1) * sizeof(char*));
+      if (res->board == NULL) {
+        free(res);
+        free(line);
+        return NULL;
+      }
+    }
+    //line已经被分配内存，不需要重新分配
+    res->board[row] = line;
+    row++;
+  }
+
+  res->num_rows = row;
+  //防止错误
+  res->snakes = NULL;
+  
+  return res;
 }
 
 /*
