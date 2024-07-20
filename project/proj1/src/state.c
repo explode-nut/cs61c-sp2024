@@ -307,7 +307,7 @@ static void update_tail(game_state_t *state, unsigned int snum) {
 /* Task 4.5 */
 void update_state(game_state_t *state, int (*add_food)(game_state_t *state)) {
   // TODO: Implement this function.
-  for (int i = 0; i < state->num_snakes; i++) {
+  for (unsigned int i = 0; i < state->num_snakes; i++) {
     char next = next_square(state, i);
     if (is_snake(next) || next == '#') {
       set_board_at(state, state->snakes[i].head_row, state->snakes[i].head_col, 'x');
@@ -400,11 +400,59 @@ game_state_t *load_board(FILE *fp) {
 */
 static void find_head(game_state_t *state, unsigned int snum) {
   // TODO: Implement this function.
+  unsigned int i = state->snakes[snum].tail_row;
+  unsigned int j = state->snakes[snum].tail_col;
+  char sign = get_board_at(state, i, j);
+  while (!is_head(sign)) {
+    i = get_next_row(i, sign);
+    j = get_next_col(j, sign);
+    sign = get_board_at(state, i, j);
+  }
+
+  state->snakes[snum].head_row = i;
+  state->snakes[snum].head_col = j;
+  if (sign == 'x') {
+    state->snakes[snum].live = false;
+  } else {
+    state->snakes[snum].live = true;
+  }
+
   return;
 }
 
 /* Task 6.2 */
 game_state_t *initialize_snakes(game_state_t *state) {
   // TODO: Implement this function.
-  return NULL;
+  unsigned int num_snakes = 0;
+  //初始化蛇尾，及找到蛇的数量
+  for (unsigned int i = 0; i < state->num_rows; i++) {
+    for (unsigned int j = 0; j < strlen(state->board[i]); j ++) {
+      if (is_tail(get_board_at(state, i, j))) {
+        //第一条蛇
+        if (num_snakes == 0) {
+          state->snakes = malloc((num_snakes + 1) * sizeof(snake_t));
+          if (state->snakes == NULL) {
+            return NULL;
+          }
+        } else {
+          state->snakes = realloc(state->snakes, (num_snakes + 1) * sizeof(snake_t));
+          if (state->snakes == NULL) {
+            return NULL;
+          }
+        }
+        state->snakes[num_snakes].tail_row = i;
+        state->snakes[num_snakes].tail_col = j;
+        state->snakes[num_snakes].live = true;
+        num_snakes++;
+      }
+    }
+  }
+
+  //初始化蛇头
+  state->num_snakes = num_snakes;
+  for (unsigned int i = 0; i < num_snakes; i++) {
+    find_head(state, i);
+  }
+
+  return state;
 }
