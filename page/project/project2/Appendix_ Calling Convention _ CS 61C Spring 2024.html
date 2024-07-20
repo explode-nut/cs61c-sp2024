@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!-- saved from url=(0100)https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/analytics.js.下载" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app218.us.archive.org';v.server_ms=679;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/bundle-playback.js.下载" charset="utf-8"></script>
+<script type="text/javascript" src="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/wombat.js.下载" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden"};</script>
+<script type="text/javascript" src="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/ruffle.js.下载"></script>
+<script type="text/javascript">
+    __wm.pc(0.001);
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("https://cs61c.org/sp24/projects/proj2/calling-convention/","20240310023440","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1710038080");
+</script>
+<link rel="stylesheet" type="text/css" href="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+
+<meta name="language" content="english">
+<title>Appendix: Calling Convention | CS 61C Spring 2024</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<link rel="shortcut icon" type="image/png" href="https://web.archive.org/web/20240310023440im_/https://cs61c.org/sp24/img/favicon.png">
+<link rel="stylesheet" href="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/bootstrap.min.css" integrity="" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script defer="" src="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/bootstrap.min.js.下载" integrity="" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer="" src="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/instantpage.min.js.下载" integrity="" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/main.css">
+<script defer="" type="text/javascript" src="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/main.js.下载"></script>
+
+<script type="text/javascript" src="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/main-sync.js.下载"></script>
+<script>initDarkToggle();</script>
+<script defer="" src="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/tocbot.min.js.下载" integrity="" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;"><template shadowrootmode="closed"><div id="wm-ipp" style="position:fixed;left:0;top:0;right:0;">
+<div id="donato" style="position:relative;width:100%;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="https://archive.org/includes/donate.php?as_page=1&amp;platform=wb&amp;referer=https%3A//web.archive.org/web/20240310023440/https%3A//cs61c.org/sp24/projects/proj2/calling-convention/" scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><div id="wm-ipp-inside">
+  <div id="wm-toolbar" style="position:relative;display:flex;flex-flow:row nowrap;justify-content:space-between;">
+    <div id="wm-logo" style="/*width:110px;*/padding-top:12px;">
+      <a href="https://web.archive.org/web/" title="Wayback Machine home page"><img src="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png" srcset="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-100.png, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-150.png 1.5x, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png 2x" alt="Wayback Machine" style="width:100px" border="0"></a>
+    </div>
+    <div class="c" style="display:flex;flex-flow:column nowrap;justify-content:space-between;flex:1;">
+      <form class="u" style="display:flex;flex-direction:row;flex-wrap:nowrap;" target="_top" method="get" action="https://web.archive.org/web/submit" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="https://cs61c.org/sp24/projects/proj2/calling-convention/" onfocus="this.focus();this.select();" style="flex:1;" autocomplete="off"><input type="hidden" name="type" value="replay"><input type="hidden" name="date" value="20240310023440"><input type="submit" value="Go">
+      </form>
+      <div style="display:flex;flex-flow:row nowrap;align-items:flex-end;">
+                <div class="s" id="wm-nav-captures" style="flex:1;">
+                    <a class="t" href="https://web.archive.org/web/20240310023440*/https://cs61c.org/sp24/projects/proj2/calling-convention/" title="See a list of every capture for this URL">1 capture</a>
+          <div class="r" title="Timespan for captures of this URL">10 Mar 2024</div>
+          </div>
+        <div class="k">
+          <a href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/" id="wm-graph-anchor">
+            <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
+              <canvas id="wm-sparkline-canvas" width="725" height="27" border="0"></canvas>
+            <div class="yt" style="display: none; width: 25px; height: 27px;"></div><div class="mt" style="display: none; width: 2px; height: 27px;"></div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="n">
+      <table>
+        <tbody>
+          <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+          <tr class="m">
+            <td class="b" nowrap="nowrap">Feb</td>
+            <td class="c" id="displayMonthEl" title="You are here: 02:34:40 Mar 10, 2024">MAR</td>
+            <td class="f" nowrap="nowrap">Apr</td>
+          </tr>
+          <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+          <tr class="d">
+            <td class="b" nowrap="nowrap"><img src="https://web-static.archive.org/_static/images/toolbar/wm_tb_prv_off.png" alt="Previous capture" width="14" height="16" border="0"></td>
+            <td class="c" id="displayDayEl" style="width:34px;font-size:22px;white-space:nowrap;" title="You are here: 02:34:40 Mar 10, 2024">10</td>
+            <td class="f" nowrap="nowrap"><img src="https://web-static.archive.org/_static/images/toolbar/wm_tb_nxt_off.png" alt="Next capture" width="14" height="16" border="0"></td>
+          </tr>
+          <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+          <tr class="y">
+            <td class="b" nowrap="nowrap">2023</td>
+            <td class="c" id="displayYearEl" title="You are here: 02:34:40 Mar 10, 2024">2024</td>
+            <td class="f" nowrap="nowrap">2025</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="r" style="display:flex;flex-flow:column nowrap;align-items:flex-end;justify-content:space-between;">
+      <div id="wm-btns" style="text-align:right;height:23px;">
+                <span class="xxs">
+          <div id="wm-save-snapshot-success">success</div>
+          <div id="wm-save-snapshot-fail">fail</div>
+          <a id="wm-save-snapshot-open" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/#" title="Share via My Web Archive" style="display: none;">
+            <span class="iconochive-web"></span>
+          </a>
+          <a href="https://archive.org/account/login.php" title="Sign In" id="wm-sign-in" style="display: inline-block;">
+            <span class="iconochive-person"></span>
+          </a>
+          <span id="wm-save-snapshot-in-progress" class="iconochive-web" style="display: none;"></span>
+        </span>
+                <a class="xxs" href="http://faq.web.archive.org/" title="Get some help using the Wayback Machine" style="top:-6px;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
+        <a id="wm-tb-close" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/#close" style="top:-2px;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
+      </div>
+      <div id="wm-share" class="xxs">
+        <a href="https://web.archive.org/web/20240310023440/http://web.archive.org/screenshot/https://cs61c.org/sp24/projects/proj2/calling-convention/" id="wm-screenshot" title="screenshot" style="visibility: hidden;">
+          <span class="wm-icon-screen-shot"></span>
+        </a>
+        <a href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/#" id="wm-video" title="video">
+          <span class="iconochive-movies"></span>
+        </a>
+        <a id="wm-share-facebook" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/#" data-url="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/" title="Share on Facebook" style="margin-right:5px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
+        <a id="wm-share-twitter" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/#" data-url="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/" title="Share on Twitter" style="margin-right:5px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
+      </div>
+      <div style="padding-right:2px;text-align:right;white-space:nowrap;">
+        <a id="wm-expand" class="wm-btn wm-closed" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/#expand" onclick="__wm.ex(event);return false;"><span id="wm-expand-icon" class="iconochive-down-solid"></span> <span class="xxs" style="font-size:80%;">About this capture</span></a>
+      </div>
+    </div>
+  </div>
+    <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
+        <div id="wm-capinfo-notice" source="api"></div>
+                <div id="wm-capinfo-collected-by">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center">COLLECTED BY</div>
+    <div style="padding:3px;position:relative" id="wm-collected-by-content">
+      <div style="display:inline-block;vertical-align:top;width:49%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/save-page-now-outlinks)"></span>
+		<div>Collection: <a style="color:#33f;" href="https://archive.org/details/save-page-now-outlinks" target="_new"><span class="wm-title">Save Page Now Outlinks</span></a></div>
+	      </div>
+    </div>
+    </div>
+    <div id="wm-capinfo-timestamps">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center" title="Timestamps for the elements of this page">TIMESTAMPS</div>
+    <div>
+      <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
+      <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="https://web-static.archive.org/_static/images/loading.gif" alt="loading"></div>
+    </div>
+    </div>
+  </div></div></div><link rel="stylesheet" type="text/css" href="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/banner-styles.css"><link rel="stylesheet" type="text/css" href="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/iconochive.css"><div class="wb-autocomplete-suggestions "></div></template>
+</div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(725,27,25,2,"web","https://cs61c.org/sp24/projects/proj2/calling-convention/","20240310023440",1996,"https://web-static.archive.org/_static/",["https://web-static.archive.org/_static/css/banner-styles.css?v=S1zqJCYt","https://web-static.archive.org/_static/css/iconochive.css?v=qtvMKcIJ"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+ 
+<nav class="navbar navbar-expand-lg navbar-dark mb-4">
+<div class="container">
+<a class="navbar-brand" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/">
+<img class="d-inline-block me-2 rounded" height="48" width="48" src="./Appendix_ Calling Convention _ CS 61C Spring 2024_files/icon-small.png" alt="outline of square computer chip with cs61c label">
+<span class="align-middle">CS 61C Spring 2024</span>
+</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle Navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarContent">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/calendar/">Calendar</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/exam/">Exam</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/staff/">Staff</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/policies/">Policies</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/resources/">Resources</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/#" id="navbarLinksDropdownToggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Quick Links</a>
+<ul class="dropdown-menu p-0" aria-labelledby="navbarLinksDropdownToggle">
+<li><a class="dropdown-item nav-link" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/pdfs/resources/reference-card.pdf">Reference Card</a></li>
+<li><a class="dropdown-item nav-link" href="https://web.archive.org/web/20240310023440/https://oh.cs61c.org/">OH Queue</a></li>
+<li><a class="dropdown-item nav-link" href="https://web.archive.org/web/20240310023440/https://venus.cs61c.org/">Venus</a></li>
+<li><a class="dropdown-item nav-link" href="https://web.archive.org/web/20240310023440/https://inst.eecs.berkeley.edu/~cs61c/archives.html">Past Semesters</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<main class="mb-4">
+<section class="section">
+<div class="container">
+<div class="row spec">
+<nav class="col-md-3 d-print-none sticky-md-top nav-wrapper" aria-label="table of contents">
+<ul class="nav flex-column">
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/">Project 2: CS61Classify</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/part-a/">Part A</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/part-b/">Part B</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/function-definitions/">Appendix: Function Definitions</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/">Appendix: Calling Convention</a>
+<div id="toc-wrapper"><ul class="toc-list nav flex-column"><li class="nav-item active"><a href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/#what-is-calling-convention" class="nav-link node-name--H2  active">What is calling convention?</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/#the-caller-perspective" class="nav-link node-name--H2 ">The caller perspective</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/#the-callee-perspective" class="nav-link node-name--H2 ">The callee perspective</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/#coding-advice" class="nav-link node-name--H2 ">Coding advice</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/#debugging-advice" class="nav-link node-name--H2 ">Debugging advice</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/#randomizing-non-preserved-registers" class="nav-link node-name--H2 ">Randomizing non-preserved registers</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023440/https://cs61c.org/sp24/projects/proj2/calling-convention/#randomizing-preserved-registers" class="nav-link node-name--H2 ">Randomizing preserved registers</a></li></ul></div>
+</li>
+</ul>
+</nav>
+<div id="toc-content-wrapper" class="content col-md-9">
+<h1>Appendix: Calling Convention</h1>
+<h2 id="what-is-calling-convention">What is calling convention?</h2>
+<p>According to calling convention, when we call a function, that function promises to leave some, but not all, registers unchanged.</p>
+<p>(Reminder: The <strong>caller</strong> is the function making the call, and the <strong>callee</strong> is the function that is being called. <strong>ALL functions have the ability to be a caller and a callee; we as programmers should never assume a function isn't something because we have no knowledge about where a function may or may not be called from. Functions that call other functions are always a caller, even if they're by default a callee.</strong>)</p>
+<p>The registers that a function promises to leave unchanged are the <strong>callee-saved registers</strong> (preserved registers). <code>s0</code> through <code>s11</code> (saved registers) and <code>sp</code> are preserved registers.</p>
+<p>The registers that a function does not promise to leave unchanged are the <strong>caller-saved registers</strong> (non-preserved registers). <code>a0</code> through <code>a7</code> (argument registers), <code>t0</code> through <code>t6</code> (temporary registers), and <code>ra</code> (return address) are non-preserved registers.</p>
+<h2 id="the-caller-perspective">The caller perspective</h2>
+<p>When we call a function, that function promises to not modify any of the preserved registers, from the perspective of the caller. This means that when the function returns, we can be sure that the preserved registers have not changed. This does <strong>not</strong> however, guarantee that function called will not modify preserved register values across the function call; it just guarantees that from the perspective of the caller, the preserved register values <strong>appear</strong> unchanged.</p>
+<pre class="z-code"><code><span class="z-text z-plain">addi s0, x0, 5     # s0 contains 5
+jal ra, func       # call a function
+addi s0, s0, 0     # s0 still contains 5 here!
+</span></code></pre>
+<p>However, that function is allowed to freely modify any of the non-preserved registers. This means that as soon as you call a function and the function returns, every non-preserved register now contains <em>garbage</em>. You do not know what values are in the non-preserved registers anymore.</p>
+<p><strong>NOTE: garbage refers to unknown values; even if the values in non-preserved registers remain unchanged across a function call.</strong> This is because our guarantees don't say that non-preserved registers are untouched, so even if they aren't changed, we have to assume they are.</p>
+<pre class="z-code"><code><span class="z-text z-plain">addi t0, x0, 5     # t0 contains 5
+jal ra, func       # call a function
+addi t0, t0, 0     # t0 contains garbage!
+</span></code></pre>
+<p>This is a common calling convention bug: <strong>when a function returns, you cannot rely on the values in any non-preserved register.</strong></p>
+<p>One way to avoid this bug is to save the values in the non-preserved registers on the stack before calling the function, then restore the values in the non-preserved registers after the function returns. For example:</p>
+<pre class="z-code"><code><span class="z-text z-plain">addi t0, x0, 5     # t0 contains 5
+addi a0, t0, 10    # a0 (argument to func) contains 15
+
+# Prologue
+addi sp, sp, -8    # decrement stack
+sw t0, 0(sp)       # store t0 value on the stack
+sw a0, 4(sp)       # store a0 value on the stack
+
+# Function call
+jal ra, func       # call a function
+mv s0, a0          # save return value 1, before restoring a0's old value to avoid overwriting the return value
+mv s1, a1          # save return value 2, before moving on, in case a1 is used in the future, to avoid potentially overwriting the return value
+
+# Epilogue
+lw t0, 0(sp)       # restore t0 value from the stack
+lw a0, 4(sp)       # restore a0 value from stack
+addi sp, sp, 8     # increment stack
+
+addi t0, t0, 0     # t0 contains 5 here because you saved it before the function call!
+xori t1, a0, t0    # t0^a0 safely here
+</span></code></pre>
+<p>This is why the non-preserved registers are often called caller-saved registers, because the caller must save them when calling a function.</p>
+<h2 id="the-callee-perspective">The callee perspective</h2>
+<p>When we write a function, we are allowed to freely change any of the non-preserved registers. However, we must promise to not change any of the preserved registers, from the perspective of the caller.</p>
+<p>This is another common calling convention bug: <strong>a function cannot noticably change any preserved registers</strong>. In other words, change whatever you'd like, callee, just make sure you restore the preserved register values before returning back to the caller, and don't worry about the non-preserved registers.</p>
+<p>If we want to use one of the preserved registers during the function, we need to save the register values on the stack at the start of the function, then restore the values at the end of the function. For example:</p>
+<pre class="z-code"><code><span class="z-text z-plain"># Prologue
+addi sp, sp, -12    # decrement stack
+sw ra, 0(sp)       # store ra value on the stack
+sw s0, 4(sp)       # store s0 value on the stack
+sw s1, 8(sp)       # store s1 value on the stack
+
+# do stuff in the function
+
+# Epilogue
+lw ra, 0(sp)       # restore ra value from the stack
+lw s0, 4(sp)       # restore s0 value from the stack
+lw s1, 8(sp)       # restore s1 value from the stack
+addi sp, sp, 12    # increment stack
+
+# finish up any loose ends
+
+ret                # return from function
+</span></code></pre>
+<p>Notice that we also saved the value of <code>ra</code> on the stack. Remember that the <code>ra</code> register stores the address that we'll jump back to after this function finishes executing. Saving the value of <code>ra</code> on the stack is necessary if we decide to call another function inside this function. If we make a function call at the "do stuff" comment, then that function call will overwrite <code>ra</code>, and we'll lose the address that we were supposed to jump back to.</p>
+<h2 id="coding-advice">Coding advice</h2>
+<p>When following calling convention, it's better to be safe than sorry! It doesn't hurt to save an extra register you didn't need to save, but it's very bad to forget to save a register that you were supposed to save. With that being said, don't save every register because it takes up more stack space than necessary and also muddles your code, because eventually it's unclear as to what registers are being actively used and which ones are just chilling.</p>
+<ul>
+<li>Always save the value of <code>ra</code> at the start of a function and restore it at the end of a function. Even though it looks like it's being saved in the callee-prologue and restored in the callee-epilogue as a caller-saved register, it's actually preemptively saving <code>ra</code> in case at any point a function is called, and guarantees the return address we want to return to is preserved, before doing anything else.</li>
+<li>Save the values of all the preserved registers at the start of a function and restore them at the end of the function in the prologue and epilogue. If you choose not to save the value in one of the save registers, be absolutely sure that you aren't using that register in the function.</li>
+<li>Save the values of the non-preserved registers that we rely on after a function is being called; in other words, only non-preserved registers values we rely on across a function call should be saved. Otherwise, they can be discarded. To do this, save them before calling a function and restore them after calling a function. You can do this by moving the temporary values by moving them to a free saved register, if any are available, or by saving them on the stack. If you choose not to save the value in one of the non-preserved registers, be absolutely sure that you do not rely on the value in that register after the function returns.</li>
+</ul>
+<h2 id="debugging-advice">Debugging advice</h2>
+<p>Calling convention can be very hard to debug! If you don't follow calling convention, your code behavior is undefined; sometimes it works, and sometimes it won't.</p>
+<p>To check that you're following calling conventions for preserved registers:</p>
+<ul>
+<li><strong>Identify every preserved register</strong> you use in a function. For every preserved register you modify, make sure its value was saved at the start of the function and restored at the end of the function.</li>
+<li>Check your prologue and epilogue for typos. It's very easy to mistype a register or number!</li>
+</ul>
+<p>To check that you're following calling convention for non-preserved registers:</p>
+<ul>
+<li>Find all the function calls in your code. For each function call, <strong>identify every non-preserved register</strong> you use after that function returns, and make sure its value was saved before the call and restored after the call.</li>
+</ul>
+<h2 id="randomizing-non-preserved-registers">Randomizing non-preserved registers</h2>
+<p>Remember that immediately after you call a function, you must assume that the non-preserved registers contain garbage. (This is because the function could have changed any of the non-preserved registers.)</p>
+<p>Sometimes your code is violating calling convention by using the garbage values in non-preserved registers after calling a function. However, your code might just happen to work correctly because you got lucky with the garbage values.</p>
+<p>One way to comprehensively check that your code follows calling convention is by putting totally random garbage values in non-preserved registers, and checking that your code still works correctly (doesn't rely on those garbage values).</p>
+<p>In <code>utils.s</code>, we provided helper functions <code>randomizeCallerSavedRegs</code> and <code>randomizeCallerSavedRegsBesidesA0</code> that put random garbage values in all the non-preserved registers for you.</p>
+<p>One example of how you might use this is by putting garbage in all the non-preserved registers after the function returns:</p>
+<pre class="z-code"><code><span class="z-text z-plain">addi t0, x0, 5                       # t0 contains 5
+jal ra, func                         # call a function
+jal ra, randomizeCallerSavedRegs     # put garbage in non-preserved registers
+# t0 will not equal 5 at this point anymore, even if 'func' didn't modify it.
+
+# everything after this should still work!
+</span></code></pre>
+<p>If the function stores a return value in a0 and you don't want to put garbage in <code>a0</code>, you could use <code>randomizeCallerSavedRegsBesidesA0</code> there instead.</p>
+<p>Another example of how you might use this is by putting garbage in all the non-preserved registers just before calling a function and setting its arguments:</p>
+<pre class="z-code"><code><span class="z-text z-plain">addi t0, x0, 5                       # t0 contains 5
+jal ra, randomizeCallerSavedRegs     # put garbage in non-preserved registers
+# t0 will not equal 5 at this point anymore. 'func' shouldn't rely on t0 being equal to 5.
+
+# set arguments to the function using the a* registers here if needed
+
+jal ra, func                         # this function call should still work!
+</span></code></pre>
+<p>The function should not rely on any values in the non-preserved registers, except for the argument registers relevant to the function itself. Therefore, your code should still work correctly even with garbage values in the non-preserved registers.</p>
+<h2 id="randomizing-preserved-registers">Randomizing preserved registers</h2>
+<p>We can also put random values in registers to check that preserved registers stay unchanged. At the start of your function, you can put a constant, well-known set of values in the preserved registers. At the end of your function, you can check that those values didn't change from your function.</p>
+<p>In <code>utils.s</code>, we provided helper functions: <code>randomizeCalleeSavedRegs</code> puts random values in the preserved registers. <code>checkCalleeSavedRegs</code> checks that the random values are still in the preserved registers, and returns with error code 100 if any saved register is modified.</p>
+<p>An example of how you might use this at the start and end of your function:</p>
+<pre class="z-code"><code><span class="z-text z-plain">jal ra, randomizeCalleeSavedRegs     # put values in saved registers
+
+# your function call
+
+jal ra, checkCalleeSavedRegs         # check the saved registers values didn't change
+</span></code></pre>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="container border-top pt-4 mb-5">
+<div class="row">
+<div class="col">
+<div id="dark-toggle-wrapper" class="">
+<div class="form-check form-switch">
+<input id="inputDarkToggle" class="form-check-input" type="checkbox">
+<label class="form-check-label" for="inputDarkToggle">
+Dark Mode
+<a id="buttonDarkToggleReset" class="d-none" href="javascript:void(0);">(reset)</a>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+  
+
+  document.addEventListener("DOMContentLoaded", function() {
+    initToC();
+  });
+</script>
+
+
+
+<deepl-input-controller><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller></body><div class="xl-chrome-ext-footer" id="xl-chrome-ext-footer">
+                <div class="xl-chrome-ext-footer__ball animate__bounceOutUp">
+                  <div class="xl-chrome-ext-footer__logo"></div>
+                  <div class="xl-chrome-ext-footer__quantity">1</div>
+                </div>
+                <div class="xl-chrome-ext-footer__bar xl-chrome-ext-footer__bar--show">
+                  <div class="xl-chrome-ext-footer__content">
+                    <p class="xl-chrome-ext-footer__text">检测到页面存在1个资源</p>
+                    <div class="xl-chrome-ext-footer__action">
+                      <div class="xl-chrome-ext-footer__url download">
+                        <div class="xl-chrome-ext-footer__action-name">下载</div>
+                      </div>
+                      <div class="xl-chrome-ext-footer__url cloudAdd" style="display: none;">
+                        <div class="xl-chrome-ext-footer__action-name">
+                          <div class="xl-chrome-ext-footer__button-icon save"></div>
+                          <span class="xl-chrome-ext-footer__button-text">
+                            存云盘
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="xl-chrome-ext-footer__agreement" style="display: flex;">
+                      <span>启用插件访问在线视频时，插件将在播放窗口展示对播放链接的快捷功能</span>
+                      <span class="xl-chrome-ext-footer__know">我知道了</span>
+                    </div>
+                    <div class="xl-chrome-ext-footer__close-wrapper">
+                      <div class="xl-chrome-ext-tips">
+                        <div class="xl-chrome-ext-footer__close"></div>
+                        <div class="xl-chrome-ext-title xl-chrome-ext-title--footer">本次关闭</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div></html>

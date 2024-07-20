@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<!-- saved from url=(0102)https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/analytics.js.下载" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app222.us.archive.org';v.server_ms=207;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/bundle-playback.js.下载" charset="utf-8"></script>
+<script type="text/javascript" src="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/wombat.js.下载" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden"};</script>
+<script type="text/javascript" src="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/ruffle.js.下载"></script>
+<script type="text/javascript">
+    __wm.pc(0.001);
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("https://cs61c.org/sp24/projects/proj2/function-definitions/","20240310023414","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1710038054");
+</script>
+<link rel="stylesheet" type="text/css" href="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
+
+
+<meta name="language" content="english">
+<title>Appendix: Function Definitions | CS 61C Spring 2024</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<link rel="shortcut icon" type="image/png" href="https://web.archive.org/web/20240310023414im_/https://cs61c.org/sp24/img/favicon.png">
+<link rel="stylesheet" href="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/bootstrap.min.css" integrity="" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script defer="" src="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/bootstrap.min.js.下载" integrity="" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer="" src="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/instantpage.min.js.下载" integrity="" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/main.css">
+<script defer="" type="text/javascript" src="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/main.js.下载"></script>
+
+<script type="text/javascript" src="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/main-sync.js.下载"></script>
+<script>initDarkToggle();</script>
+<script defer="" src="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/tocbot.min.js.下载" integrity="" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="prefetch" href="https://web.archive.org/web/20240310023414mp_/https://cs61c.org/sp24/projects/proj2/calling-convention/"></head>
+<body><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr;"><template shadowrootmode="closed"><div id="wm-ipp" style="position:fixed;left:0;top:0;right:0;">
+<div id="donato" style="position:relative;width:100%;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="https://archive.org/includes/donate.php?as_page=1&amp;platform=wb&amp;referer=https%3A//web.archive.org/web/20240310023414/https%3A//cs61c.org/sp24/projects/proj2/function-definitions/" scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><div id="wm-ipp-inside">
+  <div id="wm-toolbar" style="position:relative;display:flex;flex-flow:row nowrap;justify-content:space-between;">
+    <div id="wm-logo" style="/*width:110px;*/padding-top:12px;">
+      <a href="https://web.archive.org/web/" title="Wayback Machine home page"><img src="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png" srcset="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-100.png, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-150.png 1.5x, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png 2x" alt="Wayback Machine" style="width:100px" border="0"></a>
+    </div>
+    <div class="c" style="display:flex;flex-flow:column nowrap;justify-content:space-between;flex:1;">
+      <form class="u" style="display:flex;flex-direction:row;flex-wrap:nowrap;" target="_top" method="get" action="https://web.archive.org/web/submit" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="https://cs61c.org/sp24/projects/proj2/function-definitions/" onfocus="this.focus();this.select();" style="flex:1;" autocomplete="off"><input type="hidden" name="type" value="replay"><input type="hidden" name="date" value="20240310023414"><input type="submit" value="Go">
+      </form>
+      <div style="display:flex;flex-flow:row nowrap;align-items:flex-end;">
+                <div class="s" id="wm-nav-captures" style="flex:1;"><a class="t" href="https://web.archive.org/web/*/https://cs61c.org/sp24/projects/proj2/function-definitions/" title="See a list of every capture for this URL">1 capture</a><div class="r" title="Timespan for captures of this URL">10 Mar 2024</div></div>
+        <div class="k">
+          <a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/" id="wm-graph-anchor">
+            <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
+              <canvas id="wm-sparkline-canvas" width="725" height="27" border="0"></canvas>
+            <div class="yt" style="display: none; width: 25px; height: 27px;"></div><div class="mt" style="display: none; width: 2px; height: 27px;"></div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="n">
+      <table>
+        <tbody>
+          <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+          <tr class="m">
+            <td class="b" nowrap="nowrap">Feb</td>
+            <td class="c" id="displayMonthEl" title="You are here: 02:34:14 Mar 10, 2024">MAR</td>
+            <td class="f" nowrap="nowrap">Apr</td>
+          </tr>
+          <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+          <tr class="d">
+            <td class="b" nowrap="nowrap"><img src="https://web-static.archive.org/_static/images/toolbar/wm_tb_prv_off.png" alt="Previous capture" width="14" height="16" border="0"></td>
+            <td class="c" id="displayDayEl" style="width:34px;font-size:22px;white-space:nowrap;" title="You are here: 02:34:14 Mar 10, 2024">10</td>
+            <td class="f" nowrap="nowrap"><img src="https://web-static.archive.org/_static/images/toolbar/wm_tb_nxt_off.png" alt="Next capture" width="14" height="16" border="0"></td>
+          </tr>
+          <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+          <tr class="y">
+            <td class="b" nowrap="nowrap">2023</td>
+            <td class="c" id="displayYearEl" title="You are here: 02:34:14 Mar 10, 2024">2024</td>
+            <td class="f" nowrap="nowrap">2025</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="r" style="display:flex;flex-flow:column nowrap;align-items:flex-end;justify-content:space-between;">
+      <div id="wm-btns" style="text-align:right;height:23px;">
+                <span class="xxs">
+          <div id="wm-save-snapshot-success">success</div>
+          <div id="wm-save-snapshot-fail">fail</div>
+          <a id="wm-save-snapshot-open" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#" title="Share via My Web Archive" style="display: none;">
+            <span class="iconochive-web"></span>
+          </a>
+          <a href="https://archive.org/account/login.php" title="Sign In" id="wm-sign-in" style="display: inline-block;">
+            <span class="iconochive-person"></span>
+          </a>
+          <span id="wm-save-snapshot-in-progress" class="iconochive-web" style="display: none;"></span>
+        </span>
+                <a class="xxs" href="http://faq.web.archive.org/" title="Get some help using the Wayback Machine" style="top:-6px;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
+        <a id="wm-tb-close" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#close" style="top:-2px;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
+      </div>
+      <div id="wm-share" class="xxs">
+        <a href="https://web.archive.org/web/20240310023414/http://web.archive.org/screenshot/https://cs61c.org/sp24/projects/proj2/function-definitions/" id="wm-screenshot" title="screenshot" style="visibility: hidden;">
+          <span class="wm-icon-screen-shot"></span>
+        </a>
+        <a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#" id="wm-video" title="video">
+          <span class="iconochive-movies"></span>
+        </a>
+        <a id="wm-share-facebook" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#" data-url="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/" title="Share on Facebook" style="margin-right:5px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
+        <a id="wm-share-twitter" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#" data-url="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/" title="Share on Twitter" style="margin-right:5px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
+      </div>
+      <div style="padding-right:2px;text-align:right;white-space:nowrap;">
+        <a id="wm-expand" class="wm-btn wm-closed" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#expand" onclick="__wm.ex(event);return false;"><span id="wm-expand-icon" class="iconochive-down-solid"></span> <span class="xxs" style="font-size:80%;">About this capture</span></a>
+      </div>
+    </div>
+  </div>
+    <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
+        <div id="wm-capinfo-notice" source="api"></div>
+                <div id="wm-capinfo-collected-by">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center">COLLECTED BY</div>
+    <div style="padding:3px;position:relative" id="wm-collected-by-content">
+      <div style="display:inline-block;vertical-align:top;width:49%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/save-page-now-outlinks)"></span>
+		<div>Collection: <a style="color:#33f;" href="https://archive.org/details/save-page-now-outlinks" target="_new"><span class="wm-title">Save Page Now Outlinks</span></a></div>
+	      </div>
+    </div>
+    </div>
+    <div id="wm-capinfo-timestamps">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center" title="Timestamps for the elements of this page">TIMESTAMPS</div>
+    <div>
+      <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
+      <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="https://web-static.archive.org/_static/images/loading.gif" alt="loading"></div>
+    </div>
+    </div>
+  </div></div></div><link rel="stylesheet" type="text/css" href="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/banner-styles.css"><link rel="stylesheet" type="text/css" href="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/iconochive.css"><div class="wb-autocomplete-suggestions "></div></template>
+</div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(725,27,25,2,"web","https://cs61c.org/sp24/projects/proj2/function-definitions/","20240310023414",1996,"https://web-static.archive.org/_static/",["https://web-static.archive.org/_static/css/banner-styles.css?v=S1zqJCYt","https://web-static.archive.org/_static/css/iconochive.css?v=qtvMKcIJ"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+ 
+<nav class="navbar navbar-expand-lg navbar-dark mb-4">
+<div class="container">
+<a class="navbar-brand" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/">
+<img class="d-inline-block me-2 rounded" height="48" width="48" src="./Appendix_ Function Definitions _ CS 61C Spring 2024_files/icon-small.png" alt="outline of square computer chip with cs61c label">
+<span class="align-middle">CS 61C Spring 2024</span>
+</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle Navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarContent">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/calendar/">Calendar</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/exam/">Exam</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/staff/">Staff</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/policies/">Policies</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/resources/">Resources</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#" id="navbarLinksDropdownToggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Quick Links</a>
+<ul class="dropdown-menu p-0" aria-labelledby="navbarLinksDropdownToggle">
+<li><a class="dropdown-item nav-link" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/pdfs/resources/reference-card.pdf">Reference Card</a></li>
+<li><a class="dropdown-item nav-link" href="https://web.archive.org/web/20240310023414/https://oh.cs61c.org/">OH Queue</a></li>
+<li><a class="dropdown-item nav-link" href="https://web.archive.org/web/20240310023414/https://venus.cs61c.org/">Venus</a></li>
+<li><a class="dropdown-item nav-link" href="https://web.archive.org/web/20240310023414/https://inst.eecs.berkeley.edu/~cs61c/archives.html">Past Semesters</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<main class="mb-4">
+<section class="section">
+<div class="container">
+<div class="row spec">
+<nav class="col-md-3 d-print-none sticky-md-top nav-wrapper" aria-label="table of contents">
+<ul class="nav flex-column">
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/">Project 2: CS61Classify</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/part-a/">Part A</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/part-b/">Part B</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/">Appendix: Function Definitions</a>
+<div id="toc-wrapper"><ul class="toc-list nav flex-column"><li class="nav-item active"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#utilities-memory-allocation" class="nav-link node-name--H2  active">Utilities: Memory Allocation</a><ul class="toc-list nav flex-column is-collapsible"><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#malloc" class="nav-link node-name--H3 ">malloc</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#free" class="nav-link node-name--H3 ">free</a></li></ul></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#utilities-file-operations" class="nav-link node-name--H2 ">Utilities: File Operations</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#fopen" class="nav-link node-name--H3 ">fopen</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#fread" class="nav-link node-name--H3 ">fread</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#fwrite" class="nav-link node-name--H3 ">fwrite</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#fclose" class="nav-link node-name--H3 ">fclose</a></li></ul></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#utilities-printing" class="nav-link node-name--H2 ">Utilities: Printing</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#print-int" class="nav-link node-name--H3 ">print_int</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#print-char" class="nav-link node-name--H3 ">print_char</a></li></ul></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#part-a" class="nav-link node-name--H2 ">Part A</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#relu" class="nav-link node-name--H3 ">relu</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#argmax" class="nav-link node-name--H3 ">argmax</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#dot" class="nav-link node-name--H3 ">dot</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#testing-functions" class="nav-link node-name--H3 ">Testing functions</a></li></ul></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#part-b" class="nav-link node-name--H2 ">Part B</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#matmul" class="nav-link node-name--H3 ">matmul</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#read-matrix" class="nav-link node-name--H3 ">read_matrix</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#write-matrix" class="nav-link node-name--H3 ">write_matrix</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#classify" class="nav-link node-name--H3 ">classify</a></li></ul></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#error-codes" class="nav-link node-name--H2 ">Error Codes</a><ul class="toc-list nav flex-column is-collapsible is-collapsed"><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#part-a-1" class="nav-link node-name--H3 ">Part A</a></li><li class="nav-item"><a href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/function-definitions/#part-b-1" class="nav-link node-name--H3 ">Part B</a></li></ul></li></ul></div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://web.archive.org/web/20240310023414/https://cs61c.org/sp24/projects/proj2/calling-convention/">Appendix: Calling Convention</a>
+</li>
+</ul>
+</nav>
+<div id="toc-content-wrapper" class="content col-md-9">
+<h1>Appendix: Function Definitions</h1>
+<p>This appendix contains the function definitions (arguments, return values, error codes) for all the provided utility functions and all the functions you need to implement.</p>
+<h2 id="utilities-memory-allocation">Utilities: Memory Allocation</h2>
+<h3 id="malloc"><code>malloc</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>malloc</code>: Allocates heap memory.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td>The size of the memory that we want to allocate (in bytes).</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td><code>a0</code></td>
+<td><code>void *</code></td>
+<td>A pointer to the allocated memory. If the allocation failed, this value is 0.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="free"><code>free</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>free</code>: Frees heap memory.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>void *</code></td>
+<td>A pointer to the allocated memory to be freed.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td colspan="3">None</td>
+</tr>
+</tbody>
+</table>
+<h2 id="utilities-file-operations">Utilities: File Operations</h2>
+<h3 id="fopen"><code>fopen</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>fopen</code>: Open a file for reading or writing.</td>
+</tr>
+<tr>
+<td rowspan="2" style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>char *</code></td>
+<td>A pointer to the filename string.</td>
+</tr>
+<tr>
+<td><code>a1</code></td>
+<td><code>int</code></td>
+<td>Permission bits. 0 for read-only, 1 for write-only.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td>A file descriptor. This integer can be used in other file operation functions to refer to the opened file. If opening the file failed, this value is -1.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fread"><code>fread</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>fread</code>: Read bytes from a file to a buffer in memory. Subsequent reads will read from later parts of the file.</td>
+</tr>
+<tr>
+<td rowspan="3" style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td>The file descriptor of the file we want to read from, previously returned by <code>fopen</code>.</td>
+</tr>
+<tr>
+<td><code>a1</code></td>
+<td><code>int*</code></td>
+<td>A pointer to the buffer where the read bytes will be stored.</td>
+</tr>
+<tr>
+<td><code>a2</code></td>
+<td><code>int</code></td>
+<td>The number of bytes to read from the file.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td>The number of bytes actually read from the file. If this differs from the argument provided in <code>a2</code>, then we either hit the end of the file or there was an error.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fwrite"><code>fwrite</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>fwrite</code>: Write bytes from a buffer in memory to a file. Subsequent writes append to the end of the existing file.</td>
+</tr>
+<tr>
+<td rowspan="4" style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td>The file descriptor of the file we want to write to, previously returned by <code>fopen</code>.</td>
+</tr>
+<tr>
+<td><code>a1</code></td>
+<td><code>void *</code></td>
+<td>A pointer to a buffer containing what we want to write to the file.</td>
+</tr>
+<tr>
+<td><code>a2</code></td>
+<td><code>int</code></td>
+<td>The number of elements to write to the file.</td>
+</tr>
+<tr>
+<td><code>a3</code></td>
+<td><code>int</code></td>
+<td>The size of each element. In total, <code>a2</code> × <code>a3</code> bytes are written.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td>The number of items actually written to the file. If this differs from the number of items specified (<code>a2</code>), then we either hit the end of the file or there was an error.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fclose"><code>fclose</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>fclose</code>: Close a file, saving any writes we have made to the file.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td>The file descriptor of the file we want to close, previously returned by <code>fopen</code>.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td>0 on success, and -1 otherwise.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="utilities-printing">Utilities: Printing</h2>
+<h3 id="print-int"><code>print_int</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>print_int</code>: Prints an integer.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td>The integer to print.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td colspan="3">None</td>
+</tr>
+</tbody>
+</table>
+<h3 id="print-char"><code>print_char</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>print_char</code>: Prints a character.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>char</code></td>
+<td>The character to print. You can provide the ASCII code or put the character directly in the register like <code>li t0 '\n'</code>.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td colspan="3">None</td>
+</tr>
+</tbody>
+</table>
+<h2 id="part-a">Part A</h2>
+<h3 id="relu"><code>relu</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>relu</code>: Task 2.</td>
+</tr>
+<tr>
+<td rowspan="2" style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>int *</code></td>
+<td>A pointer to the start of the integer array.</td>
+</tr>
+<tr>
+<td><code>a1</code></td>
+<td><code>int</code></td>
+<td>The number of integers in the array. You can assume that this argument matches the actual length of the integer array.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td colspan="3">None</td>
+</tr>
+</tbody>
+</table>
+<h3 id="argmax"><code>argmax</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>argmax</code>: Task 3.</td>
+</tr>
+<tr>
+<td rowspan="2" style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>int *</code></td>
+<td>A pointer to the start of the integer array.</td>
+</tr>
+<tr>
+<td><code>a1</code></td>
+<td><code>int</code></td>
+<td>The number of integers in the array. You can assume that this argument matches the actual length of the integer array.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td>The index of the largest element. If the largest element appears multiple times, return the smallest index.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dot"><code>dot</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>dot</code>: Task 4.</td>
+</tr>
+<tr>
+<td rowspan="5" style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>int *</code></td>
+<td>A pointer to the start of the first array.</td>
+</tr>
+<tr>
+<td><code>a1</code></td>
+<td><code>int *</code></td>
+<td>A pointer to the start of the second array.</td>
+</tr>
+<tr>
+<td><code>a2</code></td>
+<td><code>int</code></td>
+<td>The number of elements to use in the calculation.</td>
+</tr>
+<tr>
+<td><code>a3</code></td>
+<td><code>int</code></td>
+<td>The stride of the first array.</td>
+</tr>
+<tr>
+<td><code>a4</code></td>
+<td><code>int</code></td>
+<td>The stride of the second array.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td>The dot product of the two arrays, using the given number of elements and the given strides.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="testing-functions">Testing functions</h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4">Loss functions: Task 5.</td>
+</tr>
+<tr>
+<td rowspan="4" style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>int *</code></td>
+<td>A pointer to the start of the first input array.</td>
+</tr>
+<tr>
+<td><code>a1</code></td>
+<td><code>int *</code></td>
+<td>A pointer to the start of the second input array.</td>
+</tr>
+<tr>
+<td><code>a2</code></td>
+<td><code>int</code></td>
+<td>The number of integers in the array.</td>
+</tr>
+<tr>
+<td><code>a3</code></td>
+<td><code>int *</code></td>
+<td>A pointer to the start of the output array, where the results will be stored.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td>The sum of the elements in the output array. (No return value for zero-one loss.)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>initialize_zero</code>: Task 5.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td>The size of the array to be created.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td><code>a0</code></td>
+<td><code>int *</code></td>
+<td>A pointer to the newly-allocated array of zeros.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="part-b">Part B</h2>
+<h3 id="matmul"><code>matmul</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>matmul</code>: Task 6.</td>
+</tr>
+<tr>
+<td rowspan="7" style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>int *</code></td>
+<td>A pointer to the start of the first matrix A (stored as an integer array in row-major order).</td>
+</tr>
+<tr>
+<td><code>a1</code></td>
+<td><code>int</code></td>
+<td>The number of rows (height) of the first matrix A.</td>
+</tr>
+<tr>
+<td><code>a2</code></td>
+<td><code>int</code></td>
+<td>The number of columns (width) of the first matrix A.</td>
+</tr>
+<tr>
+<td><code>a3</code></td>
+<td><code>int *</code></td>
+<td>A pointer to the start of the second matrix B (stored as an integer array in row-major order).</td>
+</tr>
+<tr>
+<td><code>a4</code></td>
+<td><code>int</code></td>
+<td>The number of rows (height) of the second matrix B.</td>
+</tr>
+<tr>
+<td><code>a5</code></td>
+<td><code>int</code></td>
+<td>The number of columns (width) of the second matrix B.</td>
+</tr>
+<tr>
+<td><code>a6</code></td>
+<td><code>int *</code></td>
+<td>A pointer to the start of an integer array where the result C should be stored. You can assume this memory has been allocated (but is uninitialized) and has enough space to store C.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td colspan="3">None</td>
+</tr>
+</tbody>
+</table>
+<h3 id="read-matrix"><code>read_matrix</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>read_matrix</code>: Task 7.</td>
+</tr>
+<tr>
+<td rowspan="3" style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>char *</code></td>
+<td>A pointer to the filename string.</td>
+</tr>
+<tr>
+<td><code>a1</code></td>
+<td><code>int *</code></td>
+<td>A pointer to an integer which will contain the number of rows. You can assume this points to allocated memory.</td>
+</tr>
+<tr>
+<td><code>a2</code></td>
+<td><code>int *</code></td>
+<td>A pointer to an integer which will contain the number of columns. You can assume this points to allocated memory.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td><code>a0</code></td>
+<td><code>int *</code></td>
+<td>A pointer to the matrix in memory.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="write-matrix"><code>write_matrix</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 67%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>write_matrix</code>: Task 8.</td>
+</tr>
+<tr>
+<td rowspan="4" style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>char *</code></td>
+<td>A pointer to the filename string.</td>
+</tr>
+<tr>
+<td><code>a1</code></td>
+<td><code>int *</code></td>
+<td>A pointer to the matrix in memory (stored as an integer array).</td>
+</tr>
+<tr>
+<td><code>a2</code></td>
+<td><code>int</code></td>
+<td>The number of rows in the matrix.</td>
+</tr>
+<tr>
+<td><code>a3</code></td>
+<td><code>int</code></td>
+<td>The number of columns in the matrix.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td colspan="3">None</td>
+</tr>
+</tbody>
+</table>
+<h3 id="classify"><code>classify</code></h3>
+<table>
+<colgroup>
+<col span="1" style="width: 15%;">
+<col span="1" style="width: 19%;">
+<col span="1" style="width: 9%;">
+<col span="1" style="width: 57%;">
+</colgroup>
+<tbody>
+<tr>
+<td colspan="4"><code>classify</code>: Task 9.</td>
+</tr>
+<tr>
+<td rowspan="7" style="vertical-align: middle;"><b>Arguments</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td><code>argc</code> (the number of arguments provided)</td>
+</tr>
+<tr>
+<td><code>a1</code></td>
+<td><code>char **</code></td>
+<td><code>argv</code>, a pointer to an array of argument strings (<code>char *</code>)</td>
+</tr>
+<tr>
+<td><code>a1[1]</code> = <code>*(a1 + 4)</code></td>
+<td><code>char *</code></td>
+<td>A pointer to the filepath string of the first matrix file <code>m0</code>.</td>
+</tr>
+<tr>
+<td><code>a1[2]</code> = <code>*(a1 + 8)</code></td>
+<td><code>char *</code></td>
+<td>A pointer to the filepath string of the second matrix file <code>m1</code>.</td>
+</tr>
+<tr>
+<td><code>a1[3]</code> = <code>*(a1 + 12)</code></td>
+<td><code>char *</code></td>
+<td>A pointer to the filepath string of the input matrix file <code>input</code>.</td>
+</tr>
+<tr>
+<td><code>a1[4]</code> = <code>*(a1 + 16)</code></td>
+<td><code>char *</code></td>
+<td>A pointer to the filepath string of the output file.</td>
+</tr>
+<tr>
+<td><code>a2</code></td>
+<td><code>int</code></td>
+<td>If set to 0, print out the classification. Otherwise, do not print anything.</td>
+</tr>
+<tr>
+<td style="vertical-align: middle;"><b>Return values</b></td>
+<td><code>a0</code></td>
+<td><code>int</code></td>
+<td>The classification (see above).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="error-codes">Error Codes</h2>
+<h3 id="part-a-1">Part A</h3>
+<table>
+<colgroup>
+<col span="1" style="width: 8%;">
+<col span="1" style="width: 56%;">
+<col span="1" style="width: 36%;">
+</colgroup>
+<tbody>
+<tr>
+<td><b>Return code</b></td>
+<td><b>Exception</b></td>
+<td><b>Functions</b></td>
+</tr>
+<tr>
+<td>26</td>
+<td><code>malloc</code> returns an error.</td>
+<td><code>initialize_zero</code> (5)</td>
+</tr>
+<tr>
+<td>36</td>
+<td>The length of the array is less than 1.</td>
+<td><code>relu</code> (2), <code>argmax</code> (3), <code>dot</code> (4), loss functions (5), <code>initialize_zero</code> (5)</td>
+</tr>
+<tr>
+<td>37</td>
+<td>The stride of either array is less than 1.</td>
+<td><code>dot</code> (4)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="part-b-1">Part B</h3>
+<table>
+<colgroup>
+<col span="1" style="width: 8%;">
+<col span="1" style="width: 56%;">
+<col span="1" style="width: 36%;">
+</colgroup>
+<tbody>
+<tr>
+<td><b>Return code</b></td>
+<td><b>Exception</b></td>
+<td><b>Functions</b></td>
+</tr>
+<tr>
+<td>26</td>
+<td><code>malloc</code> returns an error.</td>
+<td><code>read_matrix</code> (7), <code>classify</code> (9)</td>
+</tr>
+<tr>
+<td>27</td>
+<td><code>fopen</code> returns an error.</td>
+<td><code>read_matrix</code> (7), <code>write_matrix</code> (8)</td>
+</tr>
+<tr>
+<td>28</td>
+<td><code>fclose</code> returns an error.</td>
+<td><code>read_matrix</code> (7), <code>write_matrix</code> (8)</td>
+</tr>
+<tr>
+<td>29</td>
+<td><code>fread</code> does not read the correct number of bytes.</td>
+<td><code>read_matrix</code> (7)</td>
+</tr>
+<tr>
+<td>30</td>
+<td><code>fwrite</code> does not write the correct number of bytes.</td>
+<td><code>write_matrix</code> (8)</td>
+</tr>
+<tr>
+<td>31</td>
+<td>There are an incorrect number of command line arguments.</td>
+<td><code>classify</code> (9)</td>
+</tr>
+<tr>
+<td>38</td>
+<td>The height or width of either matrix is less than 1.</td>
+<td><code>matmul</code> (6)</td>
+</tr>
+<tr>
+<td>38</td>
+<td>The number of columns (width) of the first matrix A is not equal to the number of rows (height) of the second matrix B.</td>
+<td><code>matmul</code> (6)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="container border-top pt-4 mb-5">
+<div class="row">
+<div class="col">
+<div id="dark-toggle-wrapper" class="">
+<div class="form-check form-switch">
+<input id="inputDarkToggle" class="form-check-input" type="checkbox">
+<label class="form-check-label" for="inputDarkToggle">
+Dark Mode
+<a id="buttonDarkToggleReset" class="d-none" href="javascript:void(0);">(reset)</a>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+  
+
+  document.addEventListener("DOMContentLoaded", function() {
+    initToC();
+  });
+</script>
+
+
+
+<deepl-input-controller><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller></body><div class="xl-chrome-ext-footer" id="xl-chrome-ext-footer">
+                <div class="xl-chrome-ext-footer__ball animate__bounceOutUp">
+                  <div class="xl-chrome-ext-footer__logo"></div>
+                  <div class="xl-chrome-ext-footer__quantity">1</div>
+                </div>
+                <div class="xl-chrome-ext-footer__bar xl-chrome-ext-footer__bar--hidden">
+                  <div class="xl-chrome-ext-footer__content">
+                    <p class="xl-chrome-ext-footer__text">检测到页面存在1个资源</p>
+                    <div class="xl-chrome-ext-footer__action">
+                      <div class="xl-chrome-ext-footer__url download">
+                        <div class="xl-chrome-ext-footer__action-name">下载</div>
+                      </div>
+                      <div class="xl-chrome-ext-footer__url cloudAdd" style="display: none;">
+                        <div class="xl-chrome-ext-footer__action-name">
+                          <div class="xl-chrome-ext-footer__button-icon save"></div>
+                          <span class="xl-chrome-ext-footer__button-text">
+                            存云盘
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="xl-chrome-ext-footer__agreement" style="display: flex;">
+                      <span>启用插件访问在线视频时，插件将在播放窗口展示对播放链接的快捷功能</span>
+                      <span class="xl-chrome-ext-footer__know">我知道了</span>
+                    </div>
+                    <div class="xl-chrome-ext-footer__close-wrapper">
+                      <div class="xl-chrome-ext-tips">
+                        <div class="xl-chrome-ext-footer__close"></div>
+                        <div class="xl-chrome-ext-title xl-chrome-ext-title--footer">本次关闭</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div></html>
