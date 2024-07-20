@@ -243,7 +243,6 @@ bool test_next_square_board_1() {
 
   // check that board has not changed
   game_state_t *expected_state = create_default_state();
-
   if (!assert_state_equals(expected_state, actual_state)) {
     printf("%s\n", "Error: next_square should not modify board");
     return false;
