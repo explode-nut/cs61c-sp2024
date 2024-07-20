@@ -330,7 +330,7 @@ char *read_line(FILE *fp) {
     char *line = NULL;
 
     // 尝试读取一行到缓冲区
-    if(fgets(buff, 255, fp) != NULL) {
+    if(fgets(buff, 64, fp) != NULL) {
         line = malloc(strlen(buff) + 1); // 分配足够大小的内存
         if(line != NULL) {
             strcpy(line, buff); // 复制数据

@@ -44,18 +44,19 @@ int main(int argc, char *argv[]) {
   // Read board from file, or create default board
   if (in_filename != NULL) {
     // TODO: Load the board from in_filename
-    FILE *fp1 = fopen(in_filename, "w");
-    state = load_board(fp1);
-    fclose(fp1);
     // TODO: If the file doesn't exist, return -1
-    if (state == NULL) {
+    FILE *fp1 = fopen(in_filename, "r");
+    if (fp1 == NULL) {
       return -1;
     }
+    state = load_board(fp1);
+    fclose(fp1);
     // TODO: Then call initialize_snakes on the state you made
     state = initialize_snakes(state);
   } else if (io_stdin) {
     // TODO: Load the board from stdin
-    load_board(stdin);
+    FILE *fp2 = stdin;
+    state = load_board(fp2);
     // TODO: Then call initialize_snakes on the state you made
     state = initialize_snakes(state);
   } else {
@@ -72,9 +73,7 @@ int main(int argc, char *argv[]) {
     save_board(state, out_filename);
   } else {
     // TODO: Print the board to stdout
-    FILE *fp2 = fopen(out_filename, "r");
-    print_board(state, fp2);
-    fclose(fp2);
+    print_board(state, stdout);
   }
 
   // TODO: Free the state
