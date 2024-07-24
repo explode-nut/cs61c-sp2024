@@ -16,7 +16,6 @@ relu:
     # Prologue
     addi t0 x0 1
     addi t2 x0 4
-    addi t3 x0 0
     blt a1 t0 exception_exit
     
     addi sp sp -12
@@ -34,7 +33,7 @@ loop_start:
     add s0 a0 t1 # true address 
     lw t1 0(s0)
     bge t1 x0 loop_continue
-    sw t3 0(s0)
+    sw x0 0(s0)
 loop_continue:
     addi s2 s2 1
     sub s1 s1 t0
