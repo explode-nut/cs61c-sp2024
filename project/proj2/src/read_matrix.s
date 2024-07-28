@@ -27,16 +27,107 @@
 read_matrix:
 
     # Prologue
+    addi sp sp -24
+    sw s0 0(sp)
+    sw s1 4(sp)
+    sw s2 8(sp)
+    sw s3 12(sp)
+    sw s4 16(sp)
+    sw s5 20(sp)
+    
+    li s3 4
+    li s0 -1
+    mv s1 a1
+    mv s2 a2
+    
+    li a1 0
+    addi sp sp -4
+    sw ra 0(sp)
+    jal ra fopen
+    lw ra 0(sp)
+    addi sp sp 4
+    beq a0 s0 fopen_exception
+    mv s4 a0
+    
+    mv a1 s1
+    li a2 4
+    addi sp sp -4
+    sw ra 0(sp)
+    jal ra fread
+    lw ra 0(sp)
+    addi sp sp 4
+    bne a0 s3 fread_exception
 
+    mv a0 s4
+    mv a1 s2
+    li a2 4
+    addi sp sp -4
+    sw ra 0(sp)
+    jal ra fread
+    lw ra 0(sp)
+    addi sp sp 4
+    bne a0 s3 fread_exception
+    
+    lw t2 0(s1)
+    lw t3 0(s2)
+    mul t4 t2 t3
+    slli t4 t4 2
+    mv a0 t4
+    addi sp sp -4
+    sw ra 0(sp)
+    jal ra malloc
+    lw ra 0(sp)
+    addi sp sp 4
+    beq a0 x0 malloc_exception
+    mv s5 a0
+    
+    mv a1 s5
+    lw t2 0(s1)
+    lw t3 0(s2)
+    mul t4 t2 t3
+    slli t4 t4 2
+    mv a2 t4
+    mv a0 s4
+    addi sp sp -4
+    sw ra 0(sp)
+    jal ra fread
+    lw ra 0(sp)
+    addi sp sp 4
+    lw t2 0(s1)
+    lw t3 0(s2)
+    mul t4 t2 t3
+    slli t4 t4 2
+    bne a0 t4 fread_exception
 
-
-
-
-
-
-
+    mv a0 s4
+    addi sp sp -4
+    sw ra 0(sp)
+    jal ra fclose
+    lw ra 0(sp)
+    addi sp sp 4
+    beq a0 s0 fclose_exception
+    mv a0 s5
 
     # Epilogue
+    lw s0 0(sp)
+    lw s1 4(sp)
+    lw s2 8(sp)
+    lw s3 12(sp)
+    lw s4 16(sp)
+    lw s5 20(sp)
+    addi sp sp 24
 
 
     jr ra
+malloc_exception:
+    li a0 26
+    j exit
+fopen_exception:
+    li a0 27
+    j exit
+fclose_exception:
+    li a0 28
+    j exit
+fread_exception:
+    li a0 29
+    j exit
