@@ -82,7 +82,7 @@ read_matrix:
 
     mv a0 s4
     jal ra fclose
-    beq a0 s0 fclose_exception
+    bnez a0 fclose_exception
     mv a0 s5
 
     # Epilogue
