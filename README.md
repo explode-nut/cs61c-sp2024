@@ -9,6 +9,6 @@
 - lab07❌
 ## project完成情况
 - project1✅
-- project2❌
+- project2✅
 - project3❌
 - project4❌
