@@ -1,6 +1,6 @@
 # cs61c-sp2024
 ## lab完成情况
-> lab6,lab7,lab8为su2024版本
+> lab6,lab7,lab8,lab9为su2024版本
 - lab01✅
 - lab02✅
 - lab03✅
