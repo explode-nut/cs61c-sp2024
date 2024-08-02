@@ -7,7 +7,9 @@
 - lab04✅
 - lab05❌
 - lab06❌
-- lab07❌
+- lab07✅
+- lab08❌
+- lab09❌
 ## project完成情况
 > project3为su2024版本
 - project1✅
