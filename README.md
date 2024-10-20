@@ -5,8 +5,8 @@
 - lab02✅
 - lab03✅
 - lab04✅
-- lab05❌
-- lab06❌
+- lab05✅
+- lab06✅
 - lab07✅
 - lab08✅
 ## project完成情况
