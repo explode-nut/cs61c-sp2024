@@ -13,4 +13,4 @@
 > project3为su2024版本
 - project1✅
 - project2✅
-- project3❌
+- project3❌(已迁移到[新仓库](https://github.com/explode-nut/cs61c))
